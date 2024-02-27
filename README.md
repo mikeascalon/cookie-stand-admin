@@ -1,40 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# LAB - Class 37
 
-First, run the development server:
+## Project: Leveling up Front End with React, Next.js & TailwindCSS
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Author: Michelangelo Ascalon
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+This project aims to create a Cookie Stand Admin application using Next.js and Tailwind CSS. It showcases the integration of React with Next.js for server-side rendering and the utility-first styling approach of Tailwind CSS. This application allows users to manage cookie stand locations, including adding new stands and viewing data on existing ones.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Installation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Clone the repository to your local machine
+   ```
+   git clone <repository-url>
+   ```
+2. Navigate to the project directory
+   ```
+   cd cookie-stand-admin
+   ```
+3. Install dependencies
+   ```
+   npm install
+   ```
+4. Run the development server
+   ```
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+The application is straightforward to use. Navigate through the application to manage cookie stands:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Create Cookie Stand**: Fill out the form in the main section to add a new cookie stand. Input fields include location, minimum customers per hour, maximum customers per hour, and average cookies per sale.
+- **View Cookie Stands**: The table below the form displays all added cookie stands along with their details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
