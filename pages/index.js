@@ -8,6 +8,8 @@ function Main(props) {
 export default function Home() {
 
   const [cookieStands, setCookieStands] = useState([]);
+  const [lastLocation, setLastLocation] = useState('location');
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,6 +20,7 @@ export default function Home() {
       avgCookies: event.target.avgCookies.value,
     };
     setCookieStands([...cookieStands, newStand]);
+    setLastLocation(newStand.location); 
     event.target.reset();
   };
   
@@ -31,8 +34,9 @@ export default function Home() {
       </Head>
       <Header />
       <Main>
-        <QuestionForm onSubmit={handleSubmit} />
+        <QuestionForm onSubmit={handleSubmit} lastLocation={lastLocation} />
         <CookieStandTable cookieStands={cookieStands} />
+        
       </Main>
       <Footer />
     </>
@@ -53,7 +57,7 @@ function QuestionForm(props) {
     <form onSubmit={props.onSubmit} className="flex flex-col p-8 mx-auto my-4 bg-gray-200 rounded-lg" style={{width: '80%'}} >
       <h2 className="mb-4 text-xl font-semibold">Add a new Cookie Stand</h2>
       <div className="mb-4">
-        <input name="location" className="w-full h-10 pl-1" placeholder="Location" />
+        <input name="location" className="w-full h-10 pl-1" placeholder={`${props.lastLocation ? ` ${props.lastLocation}` : ''}`} />
       </div>
       <div className="flex justify-between space-x-2">
         <div className="flex flex-col">
@@ -104,5 +108,13 @@ function Footer() {
     <footer className="fixed bottom-0 left-0 w-full p-1 text-xs text-center bg-green-900 text-gray-50">
       <p>Cookie Stand &copy;{ new Date().getFullYear() }</p>
     </footer>
+  );
+}
+
+function Placeholder({ lastLocation }) {
+  return (
+    <div className="fixed left-0 w-full p-1 text-xs text-center bg-gray-200 bottom-16">
+      <p>Last created location: {lastLocation}</p>
+    </div>
   );
 }
