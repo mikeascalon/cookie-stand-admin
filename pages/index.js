@@ -6,10 +6,23 @@ import QuestionForm from '@/components/questionForm.js';
 import CookieStandTable from '@/components/cookieStandTable.js';
 import { hours } from '../data';
 import { useAuth } from '../contexts/auth';
+import useResource from '../hooks/useResource';
 
 
 function Main(props) {
   return <main>{props.children}</main>;
+}
+
+function CookieStandAdmin() {
+
+  const { resources, deleteResource } = useResource();
+
+  return (
+      <>
+          <CookieStandForm />
+          <CookieStandTable stands={resources || []} deleteStand={deleteResource} />
+      </>
+  );
 }
 
 export default function Home() {
@@ -17,6 +30,7 @@ export default function Home() {
   const [cookieStands, setCookieStands] = useState([]);
   const [lastLocation, setLastLocation] = useState('location');
   const { user, login } = useAuth();
+  const { createResource } = useResource();
 
 
   const handleSubmit = (event) => {
@@ -29,7 +43,7 @@ export default function Home() {
       hourly_sales: [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36],
 
     };
-      
+    createResource(newStand);  
     setCookieStands([...cookieStands, newStand]);
     setLastLocation(newStand.location); 
     event.target.reset();

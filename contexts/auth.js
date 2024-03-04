@@ -4,6 +4,7 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const tokenUrl = baseUrl + '/api/token/';
 
 const AuthContext = createContext();
+console.log('this is AuthContext',AuthContext)
 
 export function useAuth() {
     const auth = useContext(AuthContext);
