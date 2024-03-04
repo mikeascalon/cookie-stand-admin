@@ -4,6 +4,7 @@ import Header from '@/components/header.js';
 import Footer from '@/components/footer.js';
 import QuestionForm from '@/components/questionForm.js';
 import CookieStandTable from '@/components/cookieStandTable.js';
+
 import { hours } from '../data';
 import { useAuth } from '../contexts/auth';
 import useResource from '../hooks/useResource';
@@ -19,7 +20,7 @@ function CookieStandAdmin() {
 
   return (
       <>
-          <CookieStandForm />
+          
           <CookieStandTable stands={resources || []} deleteStand={deleteResource} />
       </>
   );
