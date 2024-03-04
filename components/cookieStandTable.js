@@ -16,7 +16,7 @@ export default function CookieStandTable(props) {
 
         <tbody>
             {props.cookieStands.map(report => {
-                return <ReportRow key={report.id} report={report} />;
+                return <ReportRow key={report.location} report={report} onDelete={props.onDelete}/>;
             })}
         </tbody>
 
@@ -45,19 +45,30 @@ function HeaderRow({ headerValues }) {
     );
 }
 
-function ReportRow({ report }) {
-
+function ReportRow({ report, onDelete }) {
     const total = report.hourly_sales.reduce((sum, value) => sum + value);
-
-    const values = [report.location, ...report.hourly_sales, total];
+    // Ensure that `report.location` is not included in the values array to prevent duplication.
+    const values = [...report.hourly_sales, total];
 
     return (
-
         <tr className="odd:bg-orange-100">
-            {values.map((value, i) => <td className="pl-4 border border-green-900" key={i}>{value}</td>)}
+            {/* Location cell with delete button */}
+            <td className="flex items-center justify-between pl-4 border border-green-900">
+                {report.location}
+                <button onClick={() => onDelete(report.location)} className="text-red-500 hover:text-red-700">
+                    🗑️
+                </button>
+            </td>
+            {/* Hourly sales and total without the location */}
+            {values.map((value, i) => (
+                <td className="pl-4 border border-green-900" key={i}>
+                    {value}
+                </td>
+            ))}
         </tr>
     );
 }
+
 
 function FooterRow({ reports }) {
 
