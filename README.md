@@ -37,4 +37,10 @@ The application is straightforward to use. Navigate through the application to m
 - **Create Cookie Stand**: Fill out the form in the main section to add a new cookie stand. Input fields include location, minimum customers per hour, maximum customers per hour, and average cookies per sale.
 - **View Cookie Stands**: The table below the form displays all added cookie stands along with their details.
 
+### Links and Resources
+
+[back-end server url](https://cookie-stand-api-24-six.vercel.app/)
+
+[front-end application](https://cookie-stand-admin-24-bay.vercel.app/) 
+
 
